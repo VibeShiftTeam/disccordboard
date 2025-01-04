@@ -12,7 +12,7 @@
     <script>
         // Discord OAuth2認証URLを構築
         const clientId = "1318818467847340043"; // 置き換え不要
-        const redirectUri = "http://localhost:3000/callback.html"; // サーバーと一致させる
+        const redirectUri = "https://github.com/VibeShiftTeam/disccordboard/blob/main/public/callback.html"; // サーバーと一致させる
         const scope = "identify email";
         const responseType = "code";
         const oauthUrl = `https://discord.com/oauth2/authorize?client_id=${clientId}&redirect_uri=${encodeURIComponent(redirectUri)}&response_type=${responseType}&scope=${encodeURIComponent(scope)}`;
