@@ -7,3 +7,5 @@ const {
          MessageContent
      }
 },
+
+client.login(process.env.);
