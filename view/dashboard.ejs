@@ -1,1 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/style.css">
+  <title>Dashboard</title>
+</head>
+<body>
+  <header>
+    <h1>Dashboard</h1>
+  </header>
+  <main>
+    <p>Hello, <strong><%= user.username %></strong>!</p>
+    <ul>
+      <li>Your Discord ID: <%= user.id %></li>
+      <li>Number of Servers: <%= user.guilds.length %></li>
+    </ul>
+    <a class="button" href="/logout">Logout</a>
+  </main>
+</body>
+</html>
 
