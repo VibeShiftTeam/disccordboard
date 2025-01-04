@@ -1,1 +1,23 @@
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/style.css">
+  <title>Home</title>
+</head>
+<body>
+  <header>
+    <h1>Discord Dashboard</h1>
+  </header>
+  <main>
+    <% if (user) { %>
+      <p>Welcome back, <strong><%= user.username %></strong>!</p>
+      <a class="button" href="/dashboard">Go to Dashboard</a>
+      <a class="button" href="/logout">Logout</a>
+    <% } else { %>
+      <a class="button" href="/auth/discord">Login with Discord</a>
+    <% } %>
+  </main>
+</body>
+</html>
