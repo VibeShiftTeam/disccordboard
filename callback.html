@@ -23,7 +23,10 @@
                     
                     // ユーザー情報を表示
                     document.getElementById('username').innerText = `ユーザー名: ${userData.username}#${userData.discriminator}`;
-                    document.getElementById('avatar').src = `https://cdn.discordapp.com/avatars/${userData.id}/${userData.avatar}.png`;
+                    
+                    // アバターのURLを作成して表示
+                    const avatarUrl = `https://cdn.discordapp.com/avatars/${userData.id}/${userData.avatar}.png`;
+                    document.getElementById('avatar').src = avatarUrl;
                 } catch (error) {
                     console.error(error);
                     document.getElementById('error').innerText = 'ユーザー情報の取得に失敗しました。';
