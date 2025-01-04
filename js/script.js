@@ -35,6 +35,12 @@ window.onload = () => {
             document.getElementById("username").textContent = user.username;
             document.getElementById("discord-id").textContent = user.discordId;
             document.getElementById("guild-count").textContent = user.guildCount;
+
+            // ローディング画面を非表示にし、ダッシュボードを表示
+            document.getElementById("loading-screen").style.display = "none";
+            document.querySelector("header").style.display = "block";
+            document.querySelector("main").style.display = "block";
+            document.querySelector("footer").style.display = "block";
         }
     }
 };
