@@ -3,10 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ログインページ</title>
+    <title>Discord OAuth2ログイン</title>
 </head>
 <body>
-    <h1>ログイン</h1>
-    <button onclick="location.href='login.html'">ログイン</button>
+    <h1>Discordでログイン</h1>
+    <button onclick="discordLogin()">ログイン</button>
+
+    <script>
+        // DiscordのOAuth2認証URL
+        const clientId = "あなたのクライアントID";
+        const redirectUri = "あなたのリダイレクトURI";
+        const scope = "identify email"; // 必要に応じて追加
+        const responseType = "code"; // 認証後にコードを受け取る
+        const oauthUrl = `https://discord.com/oauth2/authorize?client_id=${clientId}&redirect_uri=${encodeURIComponent(redirectUri)}&response_type=${responseType}&scope=${encodeURIComponent(scope)}`;
+
+        // ログインボタンがクリックされたときにOAuth2認証ページにリダイレクト
+        function discordLogin() {
+            window.location.href = oauthUrl;
+        }
+    </script>
 </body>
 </html>
