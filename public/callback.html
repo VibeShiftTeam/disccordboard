@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discord OAuth2 コールバック</title>
+</head>
+<body>
+    <h1>Discord OAuth2 認証完了</h1>
+    <p>認証が成功しました。処理中です...</p>
+
+    <script>
+        // URLのクエリパラメータから認証コードを取得
+        const urlParams = new URLSearchParams(window.location.search);
+        const code = urlParams.get('code');
+
+        if (code) {
+            // サーバーに認証コードを送信
+            fetch('/callback/discord', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ code: code })
+            })
+            .then(response => response.json())
+            .then(data => {
+                // Discordユーザー情報を表示
+                console.log('Discordユーザー情報:', data);
+                document.body.innerHTML += `<p>こんにちは、${data.username}#${data.discriminator}さん！</p>`;
+            })
+            .catch(error => {
+                console.error('エラー:', error);
+                document.body.innerHTML += `<p>エラーが発生しました</p>`;
+            });
+        } else {
+            alert('認証コードが見つかりませんでした');
+        }
+    </script>
+</body>
+</html>
