@@ -1,20 +1,29 @@
 document.addEventListener('DOMContentLoaded', () => {
   const loginButton = document.getElementById('loginButton');
   const boardSection = document.getElementById('boardSection');
+  const postFormSection = document.getElementById('postFormSection');
   const postForm = document.getElementById('postForm');
   const postsContainer = document.getElementById('posts');
   const postContent = document.getElementById('postContent');
 
+  let isLoggedIn = false;  // ログイン状態を保持するフラグ
+
   // ログインボタンのクリックイベント
   loginButton.addEventListener('click', () => {
     alert("ログイン機能はまだ実装されていません。");
-    // ログインボタン押下時に掲示板が表示されるようにする
-    boardSection.style.display = 'block';
+    // ログイン後に掲示板に投稿できるようにする
+    isLoggedIn = true;
+    postFormSection.style.display = 'block'; // 投稿フォームを表示
   });
 
   // 投稿フォームの送信イベント
   postForm.addEventListener('submit', (event) => {
     event.preventDefault();
+
+    if (!isLoggedIn) {
+      alert('ログインしてください');
+      return;
+    }
 
     const content = postContent.value;
     if (content.trim() === '') return;
