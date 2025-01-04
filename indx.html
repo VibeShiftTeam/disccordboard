@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discord OAuth2 Login</title>
+</head>
+<body>
+    <h1>Login with Discord</h1>
+    <a id="login" href="#">Login with Discord</a>
+    <script>
+        // Discord OAuth2クライアントIDとリダイレクトURI
+        const clientId = '1318818467847340043';
+        const redirectUri = 'https://oceanic-iris-bramble.glitch.me/'; // GlitchバックエンドのURL
+
+        // Discord OAuth2認証のURLを設定
+        document.getElementById('login').href =
+            `https://discord.com/api/oauth2/authorize?client_id=${clientId}&redirect_uri=${encodeURIComponent(redirectUri)}&response_type=code&scope=identify%20email`;
+    </script>
+</body>
+</html>
