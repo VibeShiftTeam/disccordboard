@@ -18,10 +18,13 @@
     <div class="container">
       <h2>掲示板</h2>
       <div id="posts" class="posts"></div>
-      <form id="postForm" class="post-form">
-        <textarea id="postContent" placeholder="投稿内容を入力..." required></textarea>
-        <button type="submit">投稿する</button>
-      </form>
+      <!-- ログイン後に投稿フォームを表示 -->
+      <div id="postFormSection" class="post-form-section">
+        <form id="postForm" class="post-form">
+          <textarea id="postContent" placeholder="投稿内容を入力..." required></textarea>
+          <button type="submit">投稿する</button>
+        </form>
+      </div>
     </div>
   </section>
 
