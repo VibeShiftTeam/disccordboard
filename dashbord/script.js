@@ -6,14 +6,16 @@ document.addEventListener('DOMContentLoaded', () => {
   const postsContainer = document.getElementById('posts');
   const postContent = document.getElementById('postContent');
 
+  // Discord OAuth2のクライアントIDとリダイレクトURI
+  const clientId = 'YOUR_DISCORD_CLIENT_ID';
+  const redirectUri = encodeURIComponent('http://localhost:3000/callback');  // リダイレクトURL
+  const oauthUrl = `https://discord.com/oauth2/authorize?client_id=${clientId}&redirect_uri=${redirectUri}&response_type=code&scope=identify%20email`;
+
   let isLoggedIn = false;  // ログイン状態を保持するフラグ
 
   // ログインボタンのクリックイベント
   loginButton.addEventListener('click', () => {
-    alert("ログイン機能はまだ実装されていません。");
-    // ログイン後に掲示板に投稿できるようにする
-    isLoggedIn = true;
-    postFormSection.style.display = 'block'; // 投稿フォームを表示
+    window.location.href = oauthUrl;  // OAuth2認証を開始
   });
 
   // 投稿フォームの送信イベント
