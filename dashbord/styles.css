@@ -7,13 +7,13 @@
 
 body {
   font-family: 'Arial', sans-serif;
-  background-color: #000;
+  background-color: #121212;
   color: #dcddde;
   padding: 0;
   margin: 0;
+  transition: background-color 0.3s ease;
 }
 
-/* コンテナ */
 .container {
   width: 80%;
   margin: 0 auto;
@@ -23,82 +23,89 @@ body {
 header {
   background-color: #202225;
   padding: 20px 0;
-  border-bottom: 2px solid #7289da;
+  border-bottom: 3px solid #7289da;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
 }
 
 header h1 {
   color: #7289da;
   text-align: center;
-  font-size: 2rem;
+  font-size: 2.5rem;
 }
 
 button {
   background-color: #7289da;
   color: white;
   border: none;
-  padding: 12px 20px;
-  font-size: 1rem;
+  padding: 15px 30px;
+  font-size: 1.2rem;
   cursor: pointer;
-  border-radius: 5px;
-  transition: background-color 0.3s;
+  border-radius: 10px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 button:hover {
   background-color: #5b6eae;
+  transform: scale(1.05);
 }
 
 /* 掲示板セクション */
 .board-section {
   margin: 40px 0;
-  padding: 20px;
+  padding: 30px;
   background-color: #36393f;
-  border-radius: 10px;
+  border-radius: 20px;
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.3);
 }
 
 .board-section h2 {
   text-align: center;
-  font-size: 1.8rem;
-  margin-bottom: 20px;
+  font-size: 2rem;
+  margin-bottom: 30px;
   color: #fff;
 }
 
+/* 投稿フォーム */
 .post-form-section {
   display: none; /* ログイン前は非表示 */
+  margin-top: 30px;
 }
 
 .post-form textarea {
   width: 100%;
-  height: 120px;
-  padding: 10px;
-  border-radius: 5px;
+  height: 140px;
+  padding: 15px;
+  border-radius: 10px;
   border: 1px solid #2c2f36;
   background-color: #2f3136;
   color: #dcddde;
   font-size: 1rem;
   margin-bottom: 20px;
   resize: none;
-  transition: border 0.3s;
+  transition: border-color 0.3s ease;
 }
 
 .post-form textarea:focus {
-  border: 1px solid #7289da;
+  border-color: #7289da;
   outline: none;
 }
 
 .post-form button {
   width: 100%;
-  padding: 12px;
+  padding: 15px;
   font-size: 1.2rem;
   background-color: #7289da;
   color: white;
-  border-radius: 5px;
+  border-radius: 10px;
   border: none;
   cursor: pointer;
-  transition: background-color 0.3s;
+  transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 .post-form button:hover {
   background-color: #5b6eae;
+  transform: scale(1.05);
 }
 
 /* 投稿カード */
@@ -110,25 +117,27 @@ button:hover {
 
 .post {
   background-color: #40444b;
-  padding: 15px;
-  border-radius: 8px;
+  padding: 20px;
+  border-radius: 15px;
   border: 1px solid #2c2f36;
-  transition: transform 0.3s;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .post:hover {
   transform: scale(1.03);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
 }
 
 .post .content {
   color: #dcddde;
-  font-size: 1rem;
-  line-height: 1.5;
+  font-size: 1.1rem;
+  line-height: 1.6;
 }
 
 .post .author {
   font-size: 0.9rem;
   color: #7289da;
   text-align: right;
-  margin-top: 10px;
+  margin-top: 15px;
 }
