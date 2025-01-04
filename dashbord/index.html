@@ -8,17 +8,21 @@
 </head>
 <body>
   <header>
-    <h1>Discord サーバー掲示板</h1>
-    <button id="loginButton">ログイン</button>
+    <div class="container">
+      <h1>Discord サーバー掲示板</h1>
+      <button id="loginButton">ログイン</button>
+    </div>
   </header>
 
-  <section id="boardSection">
-    <h2>掲示板</h2>
-    <div id="posts"></div>
-    <form id="postForm">
-      <textarea id="postContent" placeholder="投稿内容を入力..." required></textarea>
-      <button type="submit">投稿する</button>
-    </form>
+  <section id="boardSection" class="board-section">
+    <div class="container">
+      <h2>掲示板</h2>
+      <div id="posts" class="posts"></div>
+      <form id="postForm" class="post-form">
+        <textarea id="postContent" placeholder="投稿内容を入力..." required></textarea>
+        <button type="submit">投稿する</button>
+      </form>
+    </div>
   </section>
 
   <script src="script.js"></script>
