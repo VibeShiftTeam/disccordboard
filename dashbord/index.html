@@ -7,12 +7,12 @@
 </head>
 <body>
     <h1>Discordでログイン</h1>
-    <button onclick="discordLogin()">ログイン</button>
+    <button onclick="discordLogin()">Discordでログイン</button>
 
     <script>
         // DiscordのOAuth2認証URL
-        const clientId = "あなたのクライアントID";
-        const redirectUri = "あなたのリダイレクトURI";
+        const clientId = "1324907278465499218"; // DiscordのクライアントID
+        const redirectUri = "https://discord.com/channels/1310883683929948191/1311649785668964373"; // DiscordのリダイレクトURI
         const scope = "identify email"; // 必要に応じて追加
         const responseType = "code"; // 認証後にコードを受け取る
         const oauthUrl = `https://discord.com/oauth2/authorize?client_id=${clientId}&redirect_uri=${encodeURIComponent(redirectUri)}&response_type=${responseType}&scope=${encodeURIComponent(scope)}`;
