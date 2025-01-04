@@ -21,7 +21,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const post = document.createElement('div');
     post.classList.add('post');
-    post.textContent = content;
+
+    const postContentDiv = document.createElement('div');
+    postContentDiv.classList.add('content');
+    postContentDiv.textContent = content;
+
+    const postAuthor = document.createElement('div');
+    postAuthor.classList.add('author');
+    postAuthor.textContent = '匿名ユーザー';
+
+    post.appendChild(postContentDiv);
+    post.appendChild(postAuthor);
 
     postsContainer.appendChild(post);
     postContent.value = ''; // テキストエリアをクリア
