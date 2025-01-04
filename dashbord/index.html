@@ -10,7 +10,7 @@
   <header>
     <div class="container">
       <h1>Discord サーバー掲示板</h1>
-      <button id="loginButton">ログイン</button>
+      <button id="loginButton" class="login-btn">ログイン</button>
     </div>
   </header>
 
@@ -18,11 +18,10 @@
     <div class="container">
       <h2>掲示板</h2>
       <div id="posts" class="posts"></div>
-      <!-- ログイン後に投稿フォームを表示 -->
       <div id="postFormSection" class="post-form-section">
         <form id="postForm" class="post-form">
           <textarea id="postContent" placeholder="投稿内容を入力..." required></textarea>
-          <button type="submit">投稿する</button>
+          <button type="submit" class="post-btn">投稿する</button>
         </form>
       </div>
     </div>
