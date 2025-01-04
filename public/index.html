@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discord OAuth2ログイン</title>
+</head>
+<body>
+    <h1>Discordでログイン</h1>
+    <button onclick="discordLogin()">Discordでログイン</button>
+
+    <script>
+        // Discord OAuth2認証URLを構築
+        const clientId = "あなたのDiscordクライアントID"; // 置き換え不要
+        const redirectUri = "http://localhost:3000/callback.html"; // サーバーと一致させる
+        const scope = "identify email";
+        const responseType = "code";
+        const oauthUrl = `https://discord.com/oauth2/authorize?client_id=${clientId}&redirect_uri=${encodeURIComponent(redirectUri)}&response_type=${responseType}&scope=${encodeURIComponent(scope)}`;
+
+        // Discord OAuth2認証ページにリダイレクト
+        function discordLogin() {
+            window.location.href = oauthUrl;
+        }
+    </script>
+</body>
+</html>
