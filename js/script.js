@@ -1,4 +1,4 @@
-// 仮のログイン情報（実際の認証はバックエンドで処理）
+// 仮のユーザー情報（実際の認証はバックエンドで処理）
 let loggedIn = false;
 let userInfo = {
     username: "User123",
@@ -6,29 +6,35 @@ let userInfo = {
     guildCount: 5
 };
 
-// ログインボタンをクリックしたとき
+// ログインボタンをクリックしたときの処理
 function loginWithDiscord() {
-    // 仮のログイン処理
+    // 仮のログイン処理（実際の認証はバックエンドで処理）
     loggedIn = true;
-    localStorage.setItem('user', JSON.stringify(userInfo));
-    window.location.href = "dashboard.html";
+    localStorage.setItem('user', JSON.stringify(userInfo));  // ローカルストレージにユーザー情報を保存
+    window.location.href = "dashboard.html";  // ダッシュボードにリダイレクト
 }
 
-// ログアウトボタンをクリックしたとき
+// ログアウトボタンをクリックしたときの処理
 function logout() {
     loggedIn = false;
-    localStorage.removeItem('user');
-    window.location.href = "index.html";
+    localStorage.removeItem('user');  // ローカルストレージからユーザー情報を削除
+    window.location.href = "index.html";  // ログイン画面にリダイレクト
 }
 
-// ダッシュボードページがロードされたときにユーザー情報を表示
+// ページが読み込まれたときの処理
 window.onload = () => {
-    if (loggedIn) {
+    // ダッシュボードページのみにアクセスする前にユーザーのログイン状態を確認
+    if (window.location.pathname === "/dashboard.html") {
         const user = JSON.parse(localStorage.getItem('user'));
-        document.getElementById("username").textContent = user.username;
-        document.getElementById("discord-id").textContent = user.discordId;
-        document.getElementById("guild-count").textContent = user.guildCount;
-    } else {
-        window.location.href = "index.html";
+        
+        if (!user) {
+            // ログインしていない場合、ログインページにリダイレクト
+            window.location.href = "index.html";
+        } else {
+            // ログインしている場合、ユーザー情報を表示
+            document.getElementById("username").textContent = user.username;
+            document.getElementById("discord-id").textContent = user.discordId;
+            document.getElementById("guild-count").textContent = user.guildCount;
+        }
     }
 };
